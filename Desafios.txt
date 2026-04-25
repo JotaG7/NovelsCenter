@@ -1,0 +1,16 @@
+Desafio 2: O Ordenador de Elite (Sorting)
+Objetivo: Organizar sua biblioteca para saber quais são as obras mais bem avaliadas.
+Tarefa: Use o método .sort() no seu array original (bibliotecaNovels) para ordenar as novels da maior nota para a menor.
+Dica: Como você tem um array de objetos, você precisará passar uma função de comparação para o .sort() que olhe para a propriedade .notas.
+
+
+Desafio 3: O Filtro de Leitura (Filtering)
+Objetivo: Criar uma lista separada apenas com o que você ainda está lendo.
+Tarefa: Use o método .filter() para criar um novo array chamado novelsEmAndamento.
+Critério: Este novo array deve conter apenas os objetos onde o status seja exatamente igual a "Em andamento".
+
+
+Desafio 4: O Contador de Volumes (Map/Reduce)
+Objetivo: Somar o total de volumes físicos/digitais que sua biblioteca possui no total.
+Tarefa: Descubra quantos volumes existem somando a propriedade .volumes de todas as novels da lista.
+Dica: Você pode tentar fazer isso usando um loop forEach ou, se quiser um desafio maior, pesquise como usar o método .reduce().
