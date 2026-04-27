@@ -1,3 +1,5 @@
+Desafios para fazer - teste de aplicação/fixação de conhecimento
+
 Desafio 2: O Ordenador de Elite (Sorting)
 Objetivo: Organizar sua biblioteca para saber quais são as obras mais bem avaliadas.
 Tarefa: Use o método .sort() no seu array original (bibliotecaNovels) para ordenar as novels da maior nota para a menor.
