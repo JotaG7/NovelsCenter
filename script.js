@@ -42,7 +42,30 @@ let bibliotecaNovels = [
     volumes: 16,
     status: "Em andamento",
   },
+  {
+    titulo: "Lord Xue Ying",
+    genero: "Xuanhuan/Ação/Aventura/Cultivo",
+    notas: 8.1,
+    autor: "I Eat Tomatoes",
+    Volumes: 40,
+    status: "Concluido",
+  },
 ];
+
+// Aprendendo e criando uma function que utiliza o metodo sort() e tambem o Spread Operator para imutabilidade
+
+function sortNovels() {
+  // Criamos a função
+  const nota = [...bibliotecaNovels].sort((a, b) => b.notas - a.notas);
+  //Criamos a variavel "nota" que vai ser o resultado do metodo sort() do array e vai fazer o calculo pegando "a/b" para ver em cada elemento dos objetos qual é maior e assim fazer a enumeração
+  // Usei o Spread Operator (...) que cria basicamente uma "copia" do meu array espalhando os elementos para usar o metodo sort() mas, quando eu chamo o array fora da função ele esta de volta a sua "forma original" e não por essa "copia ordenada",
+  // assim preservando a imutabilidade do array "original"
+  return nota;
+  // Aqui retornamos a variavel nota depois de fazermos o calculo
+}
+
+console.log(sortNovels());
+// Exibimos os dados no console executando a função
 
 // HASH TABLE - VERSÃO UTILIZANDO UMA FUNÇÃO DE FORMA MAIS SIMPLIFICADA
 function hashTable(listaDeNovels) {
@@ -60,7 +83,7 @@ function hashTable(listaDeNovels) {
 let hashNovels = hashTable(bibliotecaNovels);
 
 //Retorno de pesquisa para confirmar se funciona
-console.log(hashNovels[`Alya Sometimes Hides Her Feelings in Russian`].genero);
+//console.log(hashNovels["Lord Xue Ying"].autor);
 
 /* 
 

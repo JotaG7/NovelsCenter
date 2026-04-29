@@ -6,6 +6,19 @@ Tarefa: Use o método .sort() no seu array original (bibliotecaNovels) para orde
 Dica: Como você tem um array de objetos, você precisará passar uma função de comparação para o .sort() que olhe para a propriedade .notas.
 
 
+R: function sortNovels() {
+  // Criamos a função
+  const nota = [...bibliotecaNovels].sort((a, b) => b.notas - a.notas);
+  //Criamos a variavel "nota" que vai ser o resultado do metodo sort() do array e vai fazer o calculo pegando "a/b" para ver em cada elemento dos objetos qual é maior e assim fazer a enumeração
+  // Usei o Spread Operator (...) que cria basicamente uma "copia" do meu array espalhando os elementos para usar o metodo sort() mas, quando eu chamo o array fora da função ele esta de volta a sua "forma original" e não por essa "copia ordenada",
+  // assim preservando a imutabilidade do array "original"
+  return nota;
+  // Aqui retornamos a variavel nota depois de fazermos o calculo
+}
+
+console.log(sortNovels());
+// Exibimos os dados no console executando a função
+
 Desafio 3: O Filtro de Leitura (Filtering)
 Objetivo: Criar uma lista separada apenas com o que você ainda está lendo.
 Tarefa: Use o método .filter() para criar um novo array chamado novelsEmAndamento.
