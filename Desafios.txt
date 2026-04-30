@@ -24,6 +24,19 @@ Objetivo: Criar uma lista separada apenas com o que você ainda está lendo.
 Tarefa: Use o método .filter() para criar um novo array chamado novelsEmAndamento.
 Critério: Este novo array deve conter apenas os objetos onde o status seja exatamente igual a "Em andamento".
 
+R:function filtrarNovelsEmAndamento() {
+  let statusNovel = bibliotecaNovels.filter(
+    // Crio uma variavel e defino ela sendo o resultado do metodo filter() para o array de objetos
+    state => state.status === "Em andamento",
+    // Coloquei para fazer aplicação de filtro em um caso especifico nos status da novel que é "Em andamento", assim todas os objetos que tiverem esse status
+    // irão etornar aqui com suas respectivas informações
+  );
+  return statusNovel; // retorno do variavel
+}
+
+//exibição atraves do console.log()
+console.log(filtrarNovelsEmAndamento());
+
 
 Desafio 4: O Contador de Volumes (Map/Reduce)
 Objetivo: Somar o total de volumes físicos/digitais que sua biblioteca possui no total.
