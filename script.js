@@ -85,17 +85,13 @@ let hashNovels = hashTable(bibliotecaNovels);
 //Retorno de pesquisa para confirmar se funciona
 //console.log(hashNovels["Lord Xue Ying"].autor);
 
-// Function utilizando o metodo filter()
+// Function utilizando o metodo filter() mas agora utilizando a pesquisa dinamica onde eu coloco o status que eu quero da novel e ela me retorna todos os resultados
 
-function filtrarNovelsEmAndamento() {
-  let statusNovel = bibliotecaNovels.filter(
-    // Crio uma variavel e defino ela sendo o resultado do metodo filter() para o array de objetos
-    state => state.status === "Em andamento",
-    // Coloquei para fazer aplicação de filtro em um caso especifico nos status da novel que é "Em andamento", assim todas os objetos que tiverem esse status
-    // irão etornar aqui com suas respectivas informações
-  );
-  return statusNovel; // retorno do variavel
+function filtrarPorStatus(statusDesejado) {
+  // crio uma função com o parametro "statusDesajado"
+  return bibliotecaNovels.filter(state => state.status === statusDesejado);
+  //Retorno o array ja aplicado com filter() onde o state.status é o resultado de uma pesquisa sobre o nome especifico que esta no objeto e o resultado é todos os objetos que tenham esse elemento
 }
 
-//exibição atraves do console.log()
-console.log(filtrarNovelsEmAndamento());
+// Resultado exibido no console.log()
+console.log(filtrarPorStatus("Em andamento"));
