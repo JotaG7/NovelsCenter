@@ -50,6 +50,14 @@ let bibliotecaNovels = [
     Volumes: 40,
     status: "Concluido",
   },
+  {
+    titulo: "Reverend Insanity",
+    genero: "Xianxia/Fantasia/Ação/Aventura/Reencarnação/Estratégia",
+    notas: 9,
+    autor: "Gu Zhen Ren",
+    volumes: 20,
+    status: "Em andamento",
+  },
 ];
 
 // Aprendendo e criando uma function que utiliza o metodo sort() e tambem o Spread Operator para imutabilidade
@@ -94,4 +102,21 @@ function filtrarPorStatus(statusDesejado) {
 }
 
 // Resultado exibido no console.log()
-console.log(filtrarPorStatus("Em andamento"));
+//console.log(filtrarPorStatus("Em andamento"));
+
+// Criando uma função utilizando tudo que estava aprendendo nos ultimos commits filter(), sort() e um novo slice()
+function topNovelsPorGenero(generoDesejado) {
+  return (
+    bibliotecaNovels
+      .filter(gender => gender.genero?.includes(generoDesejado))
+      //utilizo o metodo filter() para retornar novels pelo genero escolhido e acrescento o includes para verificação do genero em meio aos caracteres especiais
+      // o "gender.genero?" foi basicamente adicionado para não haver quebra de codigo caso não aja a propriedade genero em algum objeto
+      .sort((a, b) => b.notas - a.notas)
+      // com o metodo sort() eu faço com que depois da filtragem ele ordene esse filtro da maior para a menor nota
+      .slice(0, 3)
+    // Com o metedo slice() eu retorno apenas as 3 maiores notas (começa do indice 0 e o fim é no indice 3, mas não o inclui e sim apenas o 0,1 e 2) ja ordenadas
+  );
+}
+
+//Exibição para o resultado da function topNovelsPorGenero
+console.log(topNovelsPorGenero("Fantasia"));
