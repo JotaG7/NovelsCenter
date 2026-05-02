@@ -99,7 +99,7 @@ function sortNovels() {
 //console.log(sortNovels());
 // Exibimos os dados no console executando a função
 
-// HASH TABLE - VERSÃO UTILIZANDO UMA FUNÇÃO DE FORMA MAIS SIMPLIFICADA
+// HASH TABLE - Versão utilizando o metodo reduce() e tolocalelowercase() para ter normalização de dados e case-Insensitivity na hora da pesquisa
 function hashTable(listaDeNovels) {
   return listaDeNovels.reduce((hashPorTitulo, novelAtual) => {
     //Aqui temos ja o parametro listaDeNovels com o metodo reduce(), o acumulador é o hashPorTitulo e o valor atual é a novelAtual (onde vai passar cada objeto)
@@ -125,7 +125,7 @@ function buscarNovel(buscaTitulo) {
 }
 
 //Retorno de pesquisa para confirmar se funciona
-console.log(buscarNovel("Lord"));
+console.log(buscarNovel("Lord of the mysteries"));
 
 // Function utilizando o metodo filter() mas agora utilizando a pesquisa dinamica onde eu coloco o status que eu quero da novel e ela me retorna todos os resultados
 
