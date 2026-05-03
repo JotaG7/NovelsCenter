@@ -103,7 +103,7 @@ function sortNovels() {
 function hashTable(listaDeNovels) {
   return listaDeNovels.reduce((hashPorTitulo, novelAtual) => {
     //Aqui temos ja o parametro listaDeNovels com o metodo reduce(), o acumulador é o hashPorTitulo e o valor atual é a novelAtual (onde vai passar cada objeto)
-    const novelTitulo = novelAtual.titulo.toLocaleLowerCase();
+    const novelTitulo = novelAtual.titulo.toLocaleLowerCase().trim();
     //Criei uma variavel novelTitulo onde ela recebe o elemento titulo do valor atual de reduce e o converte no diminutivo
     hashPorTitulo[novelTitulo] = novelAtual;
     // A chave para o acumulador vai ser a variavel novelTitulo de novelAtual que esta pegando o elemento e convertendo ele no diminutivo, ou seja,
@@ -120,12 +120,12 @@ let hashNovels = hashTable(bibliotecaNovels);
 //Função de busca
 //Depois de ter o diminutivo na execução do reduce() ele vai ter tbm um diminutivo na função de busca para achar sempre a versão diminutiva que esta na função hash
 function buscarNovel(buscaTitulo) {
-  return hashNovels[buscaTitulo.toLocaleLowerCase()];
+  return hashNovels[buscaTitulo.toLocaleLowerCase().trim()];
   //Pegamos a variavel hashNovels e fazemos o processo de busca no diminutivo que esta salvo na tabela hash
 }
 
 //Retorno de pesquisa para confirmar se funciona
-console.log(buscarNovel("Lord of the mysteries"));
+//console.log(buscarNovel("solo leveling"));
 
 // Function utilizando o metodo filter() mas agora utilizando a pesquisa dinamica onde eu coloco o status que eu quero da novel e ela me retorna todos os resultados
 
@@ -161,4 +161,48 @@ function topNovelsPorGenero(generoDesejado) {
 }
 
 //Exibição para o resultado da function topNovelsPorGenero
-console.log(topNovelsPorGenero(""));
+//console.log(topNovelsPorGenero(""));
+
+//Função CRUD - Create
+//Crio a função recebendo os parametros do array de objetos de bibliotecaNovels
+function adicionarNovels(titulo, genero, notas, autor, volumes, status) {
+  //Crio um objeto novo para receber esses parametros de acordo com os elementos de bibliotecaNovels
+  const novaNovel = {
+    titulo,
+    genero,
+    notas,
+    autor,
+    volumes,
+    status,
+  };
+
+  //Utilizando push para acrescentar bibliotecaNovels + novaNovel
+  bibliotecaNovels.push(novaNovel);
+
+  //Crio uma variavel que vai padronizar a chave Hash pelo titulo e utilizo o toLocaleLowerCase() para a normalização de dados
+  const hashKey = titulo.trim().toLocaleLowerCase();
+  hashNovels[hashKey] = novaNovel;
+  //Pego novaNovel e atribuo a posição hashKey (que seria o titulo) dentro de hashNovels,
+  // ou seja, pegou novaNovel colocou dentro de hashNovels e usou a hashKey como endereço de busca
+
+  //Retorno mostrando o titulo da novel cadastrada e indexada
+  return `Novel ${titulo} cadastrada e indexada`;
+}
+
+//Faço o acrescento de uma novel nova
+console.log(
+  adicionarNovels(
+    "Overlord",
+    "Fantasia/Isekai",
+    8.8,
+    "Kugane Maruyama",
+    16,
+    "Em andamento",
+  ),
+);
+
+//exibição para confirmação dos dados
+console.log(buscarNovel("overlord"));
+
+//Exibo essa a bibliotecaNovels ja "atualizada" com o novo objeto
+console.log(bibliotecaNovels);
