@@ -14,7 +14,11 @@ Currently, the system includes:
 
 4. **Dynamic Filter**: Using the filter() method to allow dynamic filtering of novels by their reading status.
 
-## Technologies- **JavaScript (ES6+)**- **Git/GitHub**- **HTML5**
+## Technologies
+
+- **JavaScript (ES6+)**
+- **Git/GitHub**
+- **HTML5**
 
 ## Lessons Learned
 
