@@ -90,7 +90,7 @@ function sortNovels() {
   // Criamos a função
   const nota = [...bibliotecaNovels].sort((a, b) => b.notas - a.notas);
   //Criamos a variavel "nota" que vai ser o resultado do metodo sort() do array e vai fazer o calculo pegando "a/b" para ver em cada elemento dos objetos qual é maior e assim fazer a enumeração
-  // Usei o Spread Operator (...) que cria basicamente uma "copia" do meu array espalhando os elementos para usar o metodo sort() mas, quando eu chamo o array fora da função ele esta de volta a sua "forma original" e não por essa "copia ordenada",
+  // Usei o Spread Operator (...) que cria basicamente uma "copia" do meu array espalhando os elementos para usar o metodo sort(), mas quando eu chamo o array fora da função ele esta de volta a sua "forma original" e não por essa "copia ordenada",
   // assim preservando a imutabilidade do array "original"
   return nota;
   // Aqui retornamos a variavel nota depois de fazermos o calculo
@@ -161,7 +161,7 @@ function topNovelsPorGenero(generoDesejado) {
 }
 
 //Exibição para o resultado da function topNovelsPorGenero
-//console.log(topNovelsPorGenero(""));
+console.log(topNovelsPorGenero("fantasia"));
 
 //Função CRUD - Create
 //Crio a função recebendo os parametros do array de objetos de bibliotecaNovels
@@ -189,7 +189,8 @@ function adicionarNovels(titulo, genero, notas, autor, volumes, status) {
   return `Novel ${titulo} cadastrada e indexada`;
 }
 
-//Faço o acrescento de uma novel nova
+/*
+Faço o acrescento de uma novel nova
 console.log(
   adicionarNovels(
     "Overlord",
@@ -201,8 +202,10 @@ console.log(
   ),
 );
 
-//exibição para confirmação dos dados
+exibição para confirmação dos dados
 console.log(buscarNovel("overlord"));
 
-//Exibo essa a bibliotecaNovels ja "atualizada" com o novo objeto
+Exibo essa a bibliotecaNovels ja "atualizada" com o novo objeto
 console.log(bibliotecaNovels);
+
+*/
