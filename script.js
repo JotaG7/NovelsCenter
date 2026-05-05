@@ -1,3 +1,9 @@
+//Função auxiliar
+//Criado a função auxiliar para melhorar a legibilidade do codigo para evitar repetição e ficar de facil manunteção
+function aux(texto) {
+  return texto.toLocaleLowerCase().trim();
+}
+
 //Banco de dados feito de forma manual, ainda não aprendi sobre banco de dados de maneira "formal"
 
 let bibliotecaNovels = [
@@ -85,7 +91,6 @@ let bibliotecaNovels = [
 ];
 
 // Aprendendo e criando uma function que utiliza o metodo sort() e tambem o Spread Operator para imutabilidade
-
 function sortNovels() {
   // Criamos a função
   const nota = [...bibliotecaNovels].sort((a, b) => b.notas - a.notas);
@@ -103,7 +108,7 @@ function sortNovels() {
 function hashTable(listaDeNovels) {
   return listaDeNovels.reduce((hashPorTitulo, novelAtual) => {
     //Aqui temos ja o parametro listaDeNovels com o metodo reduce(), o acumulador é o hashPorTitulo e o valor atual é a novelAtual (onde vai passar cada objeto)
-    const novelTitulo = novelAtual.titulo.toLocaleLowerCase().trim();
+    const novelTitulo = aux(novelAtual.titulo);
     //Criei uma variavel novelTitulo onde ela recebe o elemento titulo do valor atual de reduce e o converte no diminutivo
     hashPorTitulo[novelTitulo] = novelAtual;
     // A chave para o acumulador vai ser a variavel novelTitulo de novelAtual que esta pegando o elemento e convertendo ele no diminutivo, ou seja,
@@ -120,7 +125,7 @@ let hashNovels = hashTable(bibliotecaNovels);
 //Função de busca
 //Depois de ter o diminutivo na execução do reduce() ele vai ter tbm um diminutivo na função de busca para achar sempre a versão diminutiva que esta na função hash
 function buscarNovel(buscaTitulo) {
-  return hashNovels[buscaTitulo.toLocaleLowerCase().trim()];
+  return hashNovels[aux(buscaTitulo)];
   //Pegamos a variavel hashNovels e fazemos o processo de busca no diminutivo que esta salvo na tabela hash
 }
 
@@ -132,24 +137,25 @@ function buscarNovel(buscaTitulo) {
 function filtrarPorStatus(statusDesejado) {
   // crio uma função com o parametro "statusDesajado"
   return bibliotecaNovels.filter(
-    state =>
-      state.status.toLocaleLowerCase() === statusDesejado.toLocaleLowerCase(),
+    state => aux(state.status) === aux(statusDesejado),
   );
   //Retorno o array ja aplicado com filter() onde o state.status é o resultado de uma pesquisa sobre o nome especifico que esta no objeto e o resultado é todos os objetos que tenham esse elemento
 }
 
 // Resultado exibido no console.log()
-//console.log(filtrarPorStatus("concluido"));
+//console.log(filtrarPorStatus("em andamento"));
 
 // Criando uma função utilizando tudo que estava aprendendo nos ultimos commits filter(), sort() e um novo slice()
 function topNovelsPorGenero(generoDesejado) {
   return (
     bibliotecaNovels
-      .filter(gender =>
-        gender.genero
-          ?.toLocaleLowerCase()
-          .includes(generoDesejado.toLocaleLowerCase()),
-      )
+      .filter(gender => {
+        //Aqui fizemos uma reformulação no filter para poder colocar a função auxiliar e podermos impedir do codigo quebrar através do ?
+        // Criamos uma constante onde ela recebe a "resposta" de se gender.genero existir ou não, se sim, faça o processo padrão, se não, retorna uma string vazia
+        const generoLimpo = gender.genero ? aux(gender.genero) : "";
+        //após isso nos retornamos a constante com a propriedade includes() e colocando generoDesejado dentro da função auxiliar para se obter a normalização de dados
+        return generoLimpo.includes(aux(generoDesejado));
+      })
       //utilizo o metodo filter() para retornar novels pelo genero escolhido e acrescento o includes para verificação do genero em meio aos caracteres especiais
       // o "gender.genero?" foi basicamente adicionado para não haver quebra de codigo caso não aja a propriedade genero em algum objeto
       //coloquei o toLowerCase() pois o includes() diferencia maisculo de minusculo e com o toLowerCase() mesmo fazendo a pesquisa colocando o nome em minusculo ele consegue fazer a busca e achar o que pede
@@ -180,7 +186,7 @@ function adicionarNovels(titulo, genero, notas, autor, volumes, status) {
   bibliotecaNovels.push(novaNovel);
 
   //Crio uma variavel que vai padronizar a chave Hash pelo titulo e utilizo o toLocaleLowerCase() para a normalização de dados
-  const hashKey = titulo.trim().toLocaleLowerCase();
+  const hashKey = aux(titulo);
   hashNovels[hashKey] = novaNovel;
   //Pego novaNovel e atribuo a posição hashKey (que seria o titulo) dentro de hashNovels,
   // ou seja, pegou novaNovel colocou dentro de hashNovels e usou a hashKey como endereço de busca
@@ -189,8 +195,7 @@ function adicionarNovels(titulo, genero, notas, autor, volumes, status) {
   return `Novel ${titulo} cadastrada e indexada`;
 }
 
-/*
-Faço o acrescento de uma novel nova
+//Faço o acrescento de uma novel nova
 console.log(
   adicionarNovels(
     "Overlord",
@@ -202,10 +207,8 @@ console.log(
   ),
 );
 
-exibição para confirmação dos dados
+//exibição para confirmação dos dados
 console.log(buscarNovel("overlord"));
 
-Exibo essa a bibliotecaNovels ja "atualizada" com o novo objeto
+//Exibo essa a bibliotecaNovels ja "atualizada" com o novo objeto
 console.log(bibliotecaNovels);
-
-*/
