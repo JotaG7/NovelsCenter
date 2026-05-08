@@ -1,8 +1,4 @@
-//Função auxiliar
-//Criado a função auxiliar para melhorar a legibilidade do codigo para evitar repetição e ficar de facil manunteção
-function aux(texto) {
-  return texto.toLocaleLowerCase().trim();
-}
+//VARIAVEIS
 
 //Banco de dados feito de forma manual, ainda não aprendi sobre banco de dados de maneira "formal"
 
@@ -89,6 +85,34 @@ let bibliotecaNovels = [
     status: "Concluido",
   },
 ];
+
+//Criar um evento para salvar o input da pequisa por titulo no localstorage
+//Passo 1. criação da variavel
+const resultado = document.getElementById("inTitulo");
+
+// Pegando o id theme do svg para a mudança de tema da pagina
+const switchTheme = document.getElementById("theme");
+
+//localStorage
+if (localStorage.getItem("tema") === "dark") {
+  document.documentElement.classList.add("dark");
+} else {
+  document.documentElement.classList.remove("dark");
+}
+
+//Pegamos o conteudo salvo no local localStorage
+const tituloSalvo = localStorage.getItem("campo");
+if (tituloSalvo) {
+  resultado.value = tituloSalvo;
+}
+
+//Função auxiliar
+//Criado a função auxiliar para melhorar a legibilidade do codigo para evitar repetição e ficar de facil manunteção
+function aux(texto) {
+  return texto.toLocaleLowerCase().trim();
+}
+
+//FUNÇÕES
 
 // Aprendendo e criando uma function que utiliza o metodo sort() e tambem o Spread Operator para imutabilidade
 function sortNovels() {
@@ -212,3 +236,30 @@ console.log(buscarNovel("overlord"));
 
 //Exibo essa a bibliotecaNovels ja "atualizada" com o novo objeto
 console.log(bibliotecaNovels);
+
+//DOM
+
+//Crio uma ação de evento de click para quando clicar no svg o tema do site mudar
+switchTheme.addEventListener("click", () => {
+  //esse comando faz acrescentar o "dark" direto no html
+  const isDark = document.documentElement.classList.toggle("dark");
+
+  //Verifica se o tema isDark esta no html, se sim, ele salva ele e deixa salvo se não, ele coloca o light no localStorage assim o deixando salvo
+  if (isDark === true) {
+    localStorage.setItem("tema", "dark");
+  } else {
+    localStorage.setItem("tema", "light");
+  }
+});
+
+//Crio um evento de input, que basicamente vai registrar tudo o que o usuario fazer no campo de pesquisa
+resultado.addEventListener("input", e => {
+  //Coloco um console.log para confirmar se esta pegando o valor
+  //console.log(e.target.value);
+
+  //criar a constante campoDigitado que vai receber o valor do que sera digitado na barra de pesquisa
+  const campoDigitado = e.currentTarget.value;
+
+  //salvar o valor dando uma chave e a variavel campoDigitado pois ela recebe a string(valor) da barra de pesquisa
+  localStorage.setItem("campo", campoDigitado);
+});
