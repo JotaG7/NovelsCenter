@@ -1,5 +1,3 @@
-//VARIAVEIS
-
 //Banco de dados feito de forma manual, ainda não aprendi sobre banco de dados de maneira "formal"
 
 let bibliotecaNovels = [
@@ -123,7 +121,17 @@ if (tituloSalvo || "") {
 //Função auxiliar
 //Criado a função auxiliar para melhorar a legibilidade do codigo para evitar repetição e ficar de facil manunteção
 function aux(texto) {
-  return texto.toLocaleLowerCase().trim();
+  return (
+    texto
+      .toLocaleLowerCase()
+      .trim()
+      //usei o metodo normalize() onde ele retorna a Forma de Normalização Unicode,
+      //pegando a pesquisa do usuario com acento e decompõe em caracteres base + acento
+      .normalize("NFD")
+      //Usa da expressão regular, o replace basicamente trabalha em conjunto com o normalize() e depois da decomposição
+      //do normalize, ele vai la e retira os acentos mantendo apenas os caracteres base para ter uma forma "unificada" de pesquisa mesmo o usuario digitando errado
+      .replace(/[\u0300-\u036f]/g, "")
+  );
 }
 
 //FUNÇÕES
@@ -205,7 +213,7 @@ function topNovelsPorGenero(generoDesejado) {
 }
 
 //Exibição para o resultado da function topNovelsPorGenero
-//console.log(topNovelsPorGenero("fantasia"));
+//console.log(topNovelsPorGenero("acao"));
 
 //Function para usar na barra de pesquisa, pegando pelo titulo e exibindo o html de acordo
 function topNovelsPorTitulo(tituloDesejado) {
@@ -263,18 +271,22 @@ console.log(
 
 //Criar uma função que recebe um parametro padrão (permitindo a função exibir um array completo ou um array filtrado) para criar o hmtl e inserir ele, podendo tbm através da barra de pesquisa pegar uma novel pelo titulo
 function listaCards(biblioteca = bibliotecaNovels) {
-  //Gerar um html vazio sempre que iniciar a função
-  cardsNovels.innerHTML = "";
-
-  //pegar o parametro e através de um forEach concatenar um html que vai ter uma imagem da novel e o titulo
-  biblioteca.forEach((capa, index) => {
-    cardsNovels.innerHTML += `
-    <div class="relative group inline-block break-words mx-auto my-5">
+  // Antes eu pegava o parametro e += dentro do inneHTML, mas percebi ser um metodo falho e que trazia riscos
+  // coloquei então um map, para ele fazer o mapeamento do meu parametro e retornar todos em um unico array em forma de strings
+  // e utilizei do join para tirar a separação por "," dessas strings e assim os transformando em uma string gigante sem esta separada por ","
+  //basicamente falando para o join() junte tudo usando nada como separador
+  // o navegado agora so trabalha "uma vez" agora inves de antes onde ele sempre se reconstruia sempre que era chamado
+  const htmlCards = biblioteca
+    .map(
+      capa => `<div class="relative group inline-block break-words mx-auto my-5">
       <img class="overflow-hidden transition-all duration-300 transform group-hover:cursor-pointer object-cover object-center my-5 h-auto w-52 rounded-md group-hover:scale-125" src="${capa.capa}" alt="${capa.titulo}"> 
       <div class="overflow-hidden transition-all opacity-0 absolute top-35 rounded-md w-auto font-extraboldbold text-2xl bg-white/50 text-black  group-hover:opacity-100 group-hover:cursor-pointer">${capa.titulo}</div>
     </div>
-    `;
-  });
+    `,
+    )
+    .join("");
+
+  cardsNovels.innerHTML = htmlCards;
 }
 //Rodar a função junto ao localstorage para deixar o que foi pesquisado anteriormente la e sendo salvo tbm o resultado dessa pesquisa no html
 listaCards(topNovelsPorTitulo(tituloSalvo));
@@ -287,11 +299,7 @@ switchTheme.addEventListener("click", () => {
   const isDark = document.documentElement.classList.toggle("dark");
 
   //Verifica se o tema isDark esta no html, se sim, ele salva ele e deixa salvo se não, ele coloca o light no localStorage assim o deixando salvo
-  if (isDark === true) {
-    localStorage.setItem("tema", "dark");
-  } else {
-    localStorage.setItem("tema", "light");
-  }
+  localStorage.setItem("tema", isDark ? "dark" : "light");
 });
 
 //Crio um evento de input, que basicamente vai registrar tudo o que o usuario fazer no campo de pesquisa
