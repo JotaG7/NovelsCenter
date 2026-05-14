@@ -1,0 +1,123 @@
+/*Para o conteudo não vazar para fora de suas "caixas"*/
+* {
+  box-sizing: border-box;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+/* Fixa o fade e coloca ele para prencher toda a area visivel da tela bloqueando os cliques dos conteudos atras*/
+#fade {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 5;
+}
+
+/*No modal utilizamos o transform para centralizar o conteudo junta da posicação fixada o z-index serve para ele ficar na frente do fade
+e coloquei uns espaçamentos para ele ter certos limites dependendo do tamanhp da tela*/
+#modal {
+  position: fixed;
+  background-color: gainsboro;
+  color: #555;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90%;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+#modal-title {
+  font-size: 23px;
+  color: 888;
+  font-weight: bold;
+}
+
+#modal h3 {
+  margin-bottom: 12px;
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 28px;
+}
+
+/*Vai servir para quando o usuario conseguir interagir com as coisas dentro do modal*/
+#fade,
+#modal {
+  transition: 0.5s;
+  opacity: 1;
+  pointer-events: all;
+}
+
+/*No header vai ter o titulo da novel + o botão de fechar o modal*/
+#modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #888;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+}
+
+/*No body vai ter tres conteudos que vão ser as informações gerais da novel clicada, o sistema de recomendação em grafos BFS
+e uma mini seção de comentarios*/
+#modal-body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*Mudando a cor do texto dos dois conteudos*/
+#modal-header,
+#modal-body {
+  color: black;
+}
+
+/*Serve para esconder o conteudo e tirar os eventos de pointer do fade e modal e assim poder clicar nos conteudos das novels novamente*/
+#modal.hide,
+#fade.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/*Serve para animação para quando o modal surgir quando for clicado em alguma novel que ele venha de cima*/
+#modal.hide {
+  top: 0;
+}
+
+/*Esquema de estilização do botão fechar*/
+#btn-fecharModal {
+  padding: 10px 8px;
+  background-color: #888;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+#btn-fecharModal:hover {
+  background-color: #555;
+}
+
+#modalBody {
+  overflow: hidden;
+}
+
+#modalImg {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0.375rem;
+  width: 208px;
+}
+
+#infoNovel div {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 700;
+}

@@ -104,6 +104,46 @@ const switchTheme = document.getElementById("theme");
 //Pegando main e declarando na variavel
 const cardsNovels = document.getElementById("novelsCards");
 
+//MODAL
+const modal = document.querySelector("#modal");
+
+const fade = document.querySelector("#fade");
+
+const closeModal = document.getElementById("btn-fecharModal");
+
+const modalHeader = document.getElementById("modal-header");
+
+const modalTitle = document.getElementById("modal-title");
+
+const modalImg = document.getElementById("modalImg");
+
+const infoNovel = document.getElementById("infoNovel");
+
+//Função para esconder e aparecer o modal quando clicar em alguma das novels
+const toggleModal = novelInfo => {
+  if (novelInfo) {
+    //Criado uma verificação de segurança onde so pode mexer no texto se obter um objeto valido
+    modalTitle.textContent = novelInfo.titulo;
+    modalImg.src = novelInfo.capa;
+    modalImg.alt = novelInfo.title;
+    infoNovel.innerHTML = [
+      `<div>Titulo: ${novelInfo.titulo}</div>`,
+      `<div>Generos: ${novelInfo.genero}</div>`,
+      `<div>Nota: ${novelInfo.notas}</div>`,
+      `<div>Autor: ${novelInfo.autor}</div>`,
+      `<div>Volumes: ${novelInfo.volumes}</div>`,
+      `<div>Status: ${novelInfo.status}</div>`,
+    ].join("");
+
+    document.body.classList.add("overflow-hidden");
+  } else {
+    document.body.classList.remove("overflow-hidden");
+  }
+
+  modal.classList.toggle("hide");
+  fade.classList.toggle("hide");
+};
+
 //localStorage
 if (localStorage.getItem("tema") === "dark") {
   document.documentElement.classList.add("dark");
@@ -278,8 +318,8 @@ function listaCards(biblioteca = bibliotecaNovels) {
   // o navegado agora so trabalha "uma vez" agora inves de antes onde ele sempre se reconstruia sempre que era chamado
   const htmlCards = biblioteca
     .map(
-      capa => `<div class="relative group inline-block break-words mx-auto my-5">
-      <img class="overflow-hidden transition-all duration-300 transform group-hover:cursor-pointer object-cover object-center my-5 h-auto w-52 rounded-md group-hover:scale-125" src="${capa.capa}" alt="${capa.titulo}"> 
+      capa => `<div class="novel-title relative group inline-block break-words mx-auto my-5" data-title="${capa.titulo}">
+      <img class="overflow-hidden transition-all duration-300 transform group-hover:cursor-pointer object-cover object-center my-5 h-auto w-52 rounded-md group-hover:scale-125" src="${capa.capa}" alt="${capa.titulo}" id="imgModal"> 
       <div class="overflow-hidden transition-all opacity-0 absolute top-35 rounded-md w-auto font-extraboldbold text-2xl bg-white/50 text-black  group-hover:opacity-100 group-hover:cursor-pointer">${capa.titulo}</div>
     </div>
     `,
@@ -315,4 +355,29 @@ resultado.addEventListener("input", e => {
 
   //salvar o valor dando uma chave e a variavel campoDigitado pois ela recebe a string(valor) da barra de pesquisa
   localStorage.setItem("campo", campoDigitado);
+});
+
+//cria um evento para pegar a div clicada e puxar até o elemento pai que tem a class(novel-title)
+cardsNovels.addEventListener("click", e => {
+  //cria uma variavel para esse (novel-title)
+  const divNovel = e.target.closest(".novel-title");
+  //cria uma condicional onde se for divNovel, cria-se a constante que pega o dataset de divNovel e abre o modal
+  if (divNovel) {
+    const tituloNovel = buscarNovel(divNovel.dataset.title);
+    console.log(tituloNovel);
+    toggleModal(tituloNovel);
+  }
+});
+
+//EVENTO DE FECHAMENTO: Faz com que o botão do modal funcione corretamente
+closeModal.addEventListener("click", () => {
+  toggleModal();
+});
+
+//EVENTO DE FECHAMENTO: Faz com que o usario feche o modal não só clicando no botão, mas tbm na parte escura
+//e criando uma condicional para impedir que o modal feche clicando dentro dele
+fade.addEventListener("click", e => {
+  if (e.target === fade) {
+    toggleModal();
+  }
 });
