@@ -2,6 +2,11 @@
 
 A novel review system built to practice array manipulation, objects, and search algorithms.
 
+## How to Run
+
+1. Clone this repository: `git clone <https://github.com/JotaG7/NovelsCenter.git>`
+2. Open the `index.html` file directly in your browser or use the **Live Server** extension in VS code
+
 ## Features
 
 Currently, the system includes:
@@ -28,6 +33,14 @@ Currently, the system includes:
 
 3. **DOM Performance Optimization**: I replaced direct `+=` concatenation inside `innerHTML` loops with the combined use of `.map()` and `.join("")`. This prevents unnecessary layout recalculations (_reflow_), allowing the browser to process the generated string and update the visual interface in a single operation.
 
+4. **Bidirectional Graph Construction**: To implement the `Breadth-First Search (BFS)`, I created a bidirectional graph. By using the `.forEach()` method to iterate through the "database" combined with `.split()` and `.map()`, I transformed and normalized the genre strings. The algorithm takes the initial vertex (the clicked novel) and points to all its genres; these, in turn, point back to the respective novels that share them. Consequently, novels that share more genres with the clicked novel will be prioritized in the recommendations.
+
+## Future improvements/Roadmap
+
+1. Implement the Breadth First Search (BFS) algorithm for the recommendation system.
+
+2. Create an interactive comments section using localStorage.
+
 **Created by João Paulo Almeida Aureliano**
 
 ---
@@ -37,6 +50,9 @@ Currently, the system includes:
 ## NovelsCenter
 
 Um sistema de resenhas sobre novels para praticar manipulação de arrays, objetos e algoritmos de busca.
+
+1. Clone este repositório: `git clone <https://github.com/JotaG7/NovelsCenter.git>`
+2. Abra o arquivo `index.html` diretamente em seu navegador ou use a extensão **Live Server** no código VS
 
 ## O que o sistema faz?
 
@@ -63,5 +79,13 @@ Atualmente as funcionalidades são:
 2. Utilizei o método **reduce()** para criar uma **Tabela Hash** e assim otimizar as buscas através do título.
 
 3. **Otimização da performance DOM**: Substituí o uso da concatenação direta "+=" no `innerHTML` dentro do laço pelo uso combinado de `.map()` e `.join("")`, onde serão evitadas renderizações repetidas desnecessárias (_reflow_), fazendo com que o navegador processe a string gerada e atualize a interface visual em uma única operação.
+
+4. **Construção de grafo bidirecional**: Para utilizar da `Pesquisa em Largura (BFS)`, criei um grafo bidirecional, com `.forEach()` fiz um loop no meu "banco de dados" e utilizando dos metodos `.split()` e `.map()`, transformo e normalizei a string de generos. O algoritmo pega o vertice inicial(a novel clicacada) e aponta para todos os seus generos, estes, por sua vez, apontam para as respectivas novels que os possuem. Dessa forma, as novels que compartilharem mais generos gêneros com a novel clicada serão priorizadas nas recomendações.
+
+## Futuras Melhorias/Roadmap
+
+1. Implementar o algoritmo de Busca em Largura (BFS) para o sistema de recomendação.
+
+2. Criar uma seção de comentários interativa usando localStorage.
 
 **Criado por João Paulo Almeida Aureliano**

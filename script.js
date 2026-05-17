@@ -348,7 +348,7 @@ function construcaoGrafoNovelsGenero() {
         //Se não ter, ele inicializa os elementos de genero que estão dentro das gavetas de grafoNovelsGeneros e cria um array vazio para cada
         grafoNovelsGeneros[generos] = [];
       }
-      //Depois de criar esse array vazio, ja fora da condicional, ele pega para esses generos e coloca as suas repectivas novels de acordo com o genero de cada
+      //Depois de criar esse array vazio, ja fora da condicional, ele pega para esses generos e coloca as suas repectivas novels titles de acordo com o genero de cada
       grafoNovelsGeneros[generos].push(novels.titulo);
     });
   });
