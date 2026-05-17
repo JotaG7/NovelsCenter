@@ -40,7 +40,7 @@ let bibliotecaNovels = [
   },
   {
     titulo: "The Apothecary Diaries",
-    genero: "Misterio/Historico/Drama",
+    genero: "Misterios/Historico/Drama",
     notas: 9,
     autor: "Natsu Hyuuga",
     volumes: 16,
@@ -331,6 +331,33 @@ function listaCards(biblioteca = bibliotecaNovels) {
 //Rodar a função junto ao localstorage para deixar o que foi pesquisado anteriormente la e sendo salvo tbm o resultado dessa pesquisa no html
 listaCards(topNovelsPorTitulo(tituloSalvo));
 
+//Função para criar um sistema de recomendação de novels por generos baseados da novel clicada
+function construcaoGrafoNovelsGenero() {
+  //Crio o grafo onde sairá o resultado final
+  const grafoNovelsGeneros = {};
+  //Crio uma variavel que tem um loop no meu "banco de dados", pego os elementos de generos e separo eles em um array de generos "limpos" usando o split("/")
+  const novelsLidas = bibliotecaNovels.forEach(novels => {
+    const generoNovel = novels.genero.split("/").map(genero => aux(genero));
+    //Aqui alimento o objeto inicial, completando a primeira parte do grafo Novel -> Genero
+    grafoNovelsGeneros[novels.titulo] = generoNovel;
+
+    //Na segunda parte criamos um "sub-loop" dentro do loop principal para pegar os genero e verificar se eles ja tem esse genero dentro de grafoNovelsGeneros
+    generoNovel.forEach(generosNovel => {
+      const generos = generosNovel;
+      if (!grafoNovelsGeneros[generos]) {
+        //Se não ter, ele inicializa os elementos de genero que estão dentro das gavetas de grafoNovelsGeneros e cria um array vazio para cada
+        grafoNovelsGeneros[generos] = [];
+      }
+      //Depois de criar esse array vazio, ja fora da condicional, ele pega para esses generos e coloca as suas repectivas novels de acordo com o genero de cada
+      grafoNovelsGeneros[generos].push(novels.titulo);
+    });
+  });
+
+  return grafoNovelsGeneros;
+}
+
+console.log(construcaoGrafoNovelsGenero());
+
 //DOM
 
 //Crio uma ação de evento de click para quando clicar no svg o tema do site mudar
@@ -364,7 +391,7 @@ cardsNovels.addEventListener("click", e => {
   //cria uma condicional onde se for divNovel, cria-se a constante que pega o dataset de divNovel e abre o modal
   if (divNovel) {
     const tituloNovel = buscarNovel(divNovel.dataset.title);
-    console.log(tituloNovel);
+    //console.log(tituloNovel);
     toggleModal(tituloNovel);
   }
 });

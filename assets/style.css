@@ -72,6 +72,10 @@ e uma mini seção de comentarios*/
   align-items: center;
 }
 
+#modal-body div {
+  overflow-wrap: anywhere;
+}
+
 /*Mudando a cor do texto dos dois conteudos*/
 #modal-header,
 #modal-body {
