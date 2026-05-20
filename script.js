@@ -119,6 +119,8 @@ const modalImg = document.getElementById("modalImg");
 
 const infoNovel = document.getElementById("infoNovel");
 
+const cardsRecomendados = document.getElementById("bfsCards");
+
 //Função para esconder e aparecer o modal quando clicar em alguma das novels
 const toggleModal = novelInfo => {
   if (novelInfo) {
@@ -134,6 +136,27 @@ const toggleModal = novelInfo => {
       `<div>Volumes: ${novelInfo.volumes}</div>`,
       `<div>Status: ${novelInfo.status}</div>`,
     ].join("");
+
+    //cria a constante e faz um safety check para evitar que a novel clicada apareça nos recomendados
+    const novelsRelacionadas = recomendarNovels(novelInfo.titulo).filter(
+      item => item.titulo !== novelInfo.titulo,
+    );
+
+    //cria a constante que mapeia as novelsRelacionadas e cria uma div contendo a imagem e titulo de cada novel recomendada e o join faz disso uma "string gigante"
+    const cardRelacionados = novelsRelacionadas
+      .map(
+        relacionados =>
+          `
+      <div class="">
+      <h1 class="font-bold text-lg mb-2 ml-5 break-words truncate" >${relacionados.titulo}</h1>
+      <img class="w-28 h-auto object-cover mx-auto ml-5 rounded-md" src="${relacionados.capa}" alt="${relacionados.titulo}">
+      </div>
+      `,
+      )
+      .join("");
+
+    //injeta no html as divs das novels recomendadas
+    cardsRecomendados.innerHTML = cardRelacionados;
 
     document.body.classList.add("overflow-hidden");
   } else {
@@ -337,7 +360,8 @@ function construcaoGrafoNovelsGenero() {
   const grafoNovelsGeneros = {};
   //Crio uma variavel que tem um loop no meu "banco de dados", pego os elementos de generos e separo eles em um array de generos "limpos" usando o split("/")
   const novelsLidas = bibliotecaNovels.forEach(novels => {
-    const generoNovel = novels.genero.split("/").map(genero => aux(genero));
+    const generoNovel =
+      novels.genero?.split("/").map(genero => aux(genero)) || [];
     //Aqui alimento o objeto inicial, completando a primeira parte do grafo Novel -> Genero
     grafoNovelsGeneros[novels.titulo] = generoNovel;
 
@@ -357,6 +381,51 @@ function construcaoGrafoNovelsGenero() {
 }
 
 console.log(construcaoGrafoNovelsGenero());
+
+//BFS - pesquisa em largura utilizada dentro da novel clicada, para quando abrir as infos da novel clicada recomendar de acordo
+//com a novel clicada
+function recomendarNovels(novelClicada) {
+  //defino o parametro da novel clicada
+  const grafo = construcaoGrafoNovelsGenero();
+  //a constante grafo sera referenciada na função que foi criada a estrutura em grafo para fazer o BFS
+  const fila = [novelClicada];
+  //criamos uma constante fila que recebe o parametro da novel clicada
+  const visitados = new Set();
+  visitados.add(novelClicada);
+  //criamos uma constante visitados para que não recomende a novel que esta aberta e ja adicionamos ela para que não seja recomendada
+  const recomedacoes = [];
+  //temos uma const recomedações para que seja exibido as novels de acordo os generos forem mais "batendo"
+
+  //enquanto a fila for maior que 0 pega o primeiro da fila com shift() FIFO transforma na const atual
+  while (fila.length > 0) {
+    const atual = fila.shift();
+
+    //Os vizinho são os generos dessa novel atual
+    const vizinhos = grafo[atual] || [];
+
+    //o loop for vai passar por todas esses generos e adicionar todos em visitados e colocar no final da fila
+    for (let vizinho of vizinhos) {
+      if (!visitados.has(vizinho)) {
+        visitados.add(vizinho);
+        fila.push(vizinho);
+
+        //Novel esta recebendo os nomes na hashNovels em maisculo como eleas estão, colocando a função auxiliar as novels serão padronizadas
+        const novelTratada = aux(vizinho);
+
+        //No is é testado todos os generos dessa fila para serem buscados na hashNovels e como eles são elementos de generos e não os titulos da novel
+        //eles não são achados e o if não encontra e manda nada para o array de recomendações, agora ele passa a verificar os proximos da fila
+        //que seriam os vizinhos dos generos da novel clicada que seriam as novels que batem o mesmo genero que a novel clicada
+        //eles não foram visitados, eles entram no set visitados são adicionados a fila e como agora eles são buscados no if e são os titulos das novels,
+        //eles caem na condição e são colocados na recomendação
+        if (hashNovels[novelTratada]) {
+          recomedacoes.push(hashNovels[novelTratada]);
+        }
+      }
+    }
+  }
+  //retorna o resultado do processo da função sendo passado o metodo slice para pegar apenas 3 novels recomendadas e não todas infinitamente
+  return recomedacoes.slice(0, 3);
+}
 
 //DOM
 
