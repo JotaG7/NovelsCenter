@@ -19,6 +19,8 @@ Currently, the system includes:
 
 4. **Dynamic Filter**: Using the `filter()` method to allow dynamic filtering of novels by their reading status.
 
+5. **Breadth-First Search (BFS) Recommendation**: Implemented a BFS algorithm over a bidirectional graph to suggest relevant novels dynamically based on the user's current selection.
+
 ## Technologies
 
 - **JavaScript (ES6+)**
@@ -37,9 +39,7 @@ Currently, the system includes:
 
 ## Future improvements/Roadmap
 
-1. Implement the Breadth First Search (BFS) algorithm for the recommendation system.
-
-2. Create an interactive comments section using localStorage.
+1. Create a detailed page to include the information about the clicked novel and all its features.
 
 **Created by João Paulo Almeida Aureliano**
 
@@ -66,6 +66,8 @@ Atualmente as funcionalidades são:
 
 4. **Filtro Dinâmico**: Utilizando o método `filter()`, é possível realizar uma filtragem dinâmica das novels por status de leitura.
 
+5. **Implementação do Algoritmo em Largura - BFS**: após a construção do grafo bidirecional implementei ele para recomendar novels de acordo com a novel clicada do usuario.
+
 ## Tecnologias Utilizadas
 
 - **JavaScript (ES6+)**
@@ -84,8 +86,6 @@ Atualmente as funcionalidades são:
 
 ## Futuras Melhorias/Roadmap
 
-1. Implementar o algoritmo de Busca em Largura (BFS) para o sistema de recomendação.
-
-2. Criar uma seção de comentários interativa usando localStorage.
+1. Criar uma pagina detalhada para colocar as infos da novel clicada e todas as suas funcionalidades.
 
 **Criado por João Paulo Almeida Aureliano**

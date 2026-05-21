@@ -147,9 +147,9 @@ const toggleModal = novelInfo => {
       .map(
         relacionados =>
           `
-      <div class="">
-      <h1 class="font-bold text-lg mb-2 ml-5 break-words truncate" >${relacionados.titulo}</h1>
-      <img class="w-28 h-auto object-cover mx-auto ml-5 rounded-md" src="${relacionados.capa}" alt="${relacionados.titulo}">
+      <div class="novel-title relative group inline-block break-words mx-5 my-auto mb-10 md:mx-20">
+      <div class="transition-all absolute opacity-0 left-5 rounded-md w-auto break-words font-extraboldbold text-xl bg-white/50 text-black  group-hover:opacity-100 group-hover:cursor-pointer">${relacionados.titulo}</div>
+      <img class="w-40 h-44 object-cover object-center mx-auto ml-5 rounded-md group-hover:cursor-pointer sm:w-40 md:h-44" src="${relacionados.capa}" alt="${relacionados.titulo}">
       </div>
       `,
       )
@@ -379,8 +379,6 @@ function construcaoGrafoNovelsGenero() {
 
   return grafoNovelsGeneros;
 }
-
-console.log(construcaoGrafoNovelsGenero());
 
 //BFS - pesquisa em largura utilizada dentro da novel clicada, para quando abrir as infos da novel clicada recomendar de acordo
 //com a novel clicada
