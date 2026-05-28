@@ -9,6 +9,34 @@ let bibliotecaNovels = [
     volumes: 8,
     status: "Concluido",
     capa: "data:image/jpeg;base64,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",
+    comentarios: [
+      {
+        id: 1,
+        usuario: "Xiao_Fan",
+        texto: "I loved novel magic system",
+        respostas: [
+          {
+            id: 2,
+            usuario: "Jota",
+            texto: "yeah, i too, the author is good",
+            respostas: [
+              {
+                id: 3,
+                usuario: "Xiao_Fan",
+                texto: "the vol 1 is perfect",
+                respostas: [],
+              },
+            ],
+          },
+          {
+            id: 4,
+            usuario: "Random_Reader",
+            texto: "i think the beggining too slow",
+            respostas: [],
+          },
+        ],
+      },
+    ],
   },
 
   {
@@ -94,92 +122,7 @@ let bibliotecaNovels = [
   },
 ];
 
-//Criar um evento para salvar o input da pequisa por titulo no localstorage
-//Passo 1. criação da variavel
-const resultado = document.getElementById("inTitulo");
-
-// Pegando o id theme do svg para a mudança de tema da pagina
-const switchTheme = document.getElementById("theme");
-
-//Pegando main e declarando na variavel
-const cardsNovels = document.getElementById("novelsCards");
-
-//MODAL
-const modal = document.querySelector("#modal");
-
-const fade = document.querySelector("#fade");
-
-const closeModal = document.getElementById("btn-fecharModal");
-
-const modalHeader = document.getElementById("modal-header");
-
-const modalTitle = document.getElementById("modal-title");
-
-const modalImg = document.getElementById("modalImg");
-
-const infoNovel = document.getElementById("infoNovel");
-
-const cardsRecomendados = document.getElementById("bfsCards");
-
-//Função para esconder e aparecer o modal quando clicar em alguma das novels
-const toggleModal = novelInfo => {
-  if (novelInfo) {
-    //Criado uma verificação de segurança onde so pode mexer no texto se obter um objeto valido
-    modalTitle.textContent = novelInfo.titulo;
-    modalImg.src = novelInfo.capa;
-    modalImg.alt = novelInfo.title;
-    infoNovel.innerHTML = [
-      `<div>Titulo: ${novelInfo.titulo}</div>`,
-      `<div>Generos: ${novelInfo.genero}</div>`,
-      `<div>Nota: ${novelInfo.notas}</div>`,
-      `<div>Autor: ${novelInfo.autor}</div>`,
-      `<div>Volumes: ${novelInfo.volumes}</div>`,
-      `<div>Status: ${novelInfo.status}</div>`,
-    ].join("");
-
-    //cria a constante e faz um safety check para evitar que a novel clicada apareça nos recomendados
-    const novelsRelacionadas = recomendarNovels(novelInfo.titulo).filter(
-      item => item.titulo !== novelInfo.titulo,
-    );
-
-    //cria a constante que mapeia as novelsRelacionadas e cria uma div contendo a imagem e titulo de cada novel recomendada e o join faz disso uma "string gigante"
-    const cardRelacionados = novelsRelacionadas
-      .map(
-        relacionados =>
-          `
-      <div class="novel-title relative group inline-block break-words mx-5 my-auto mb-10 md:mx-20">
-      <div class="transition-all absolute opacity-0 left-5 rounded-md w-auto break-words font-extraboldbold text-xl bg-white/50 text-black  group-hover:opacity-100 group-hover:cursor-pointer">${relacionados.titulo}</div>
-      <img class="w-40 h-44 object-cover object-center mx-auto ml-5 rounded-md group-hover:cursor-pointer sm:w-40 md:h-44" src="${relacionados.capa}" alt="${relacionados.titulo}">
-      </div>
-      `,
-      )
-      .join("");
-
-    //injeta no html as divs das novels recomendadas
-    cardsRecomendados.innerHTML = cardRelacionados;
-
-    document.body.classList.add("overflow-hidden");
-  } else {
-    document.body.classList.remove("overflow-hidden");
-  }
-
-  modal.classList.toggle("hide");
-  fade.classList.toggle("hide");
-};
-
-//localStorage
-if (localStorage.getItem("tema") === "dark") {
-  document.documentElement.classList.add("dark");
-} else {
-  document.documentElement.classList.remove("dark");
-}
-
-//Pegamos o conteudo salvo no local localStorage
-const tituloSalvo = localStorage.getItem("campo");
-//Colocando uma string vazia para não retornar nulo e o includes() retornar todas as novels
-if (tituloSalvo || "") {
-  resultado.value = tituloSalvo;
-}
+//Funções
 
 //Função auxiliar
 //Criado a função auxiliar para melhorar a legibilidade do codigo para evitar repetição e ficar de facil manunteção
@@ -196,22 +139,6 @@ function aux(texto) {
       .replace(/[\u0300-\u036f]/g, "")
   );
 }
-
-//FUNÇÕES
-
-// Aprendendo e criando uma function que utiliza o metodo sort() e tambem o Spread Operator para imutabilidade
-function sortNovels() {
-  // Criamos a função
-  const nota = [...bibliotecaNovels].sort((a, b) => b.notas - a.notas);
-  //Criamos a variavel "nota" que vai ser o resultado do metodo sort() do array e vai fazer o calculo pegando "a/b" para ver em cada elemento dos objetos qual é maior e assim fazer a enumeração
-  // Usei o Spread Operator (...) que cria basicamente uma "copia" do meu array espalhando os elementos para usar o metodo sort(), mas quando eu chamo o array fora da função ele esta de volta a sua "forma original" e não por essa "copia ordenada",
-  // assim preservando a imutabilidade do array "original"
-  return nota;
-  // Aqui retornamos a variavel nota depois de fazermos o calculo
-}
-
-//console.log(sortNovels());
-// Exibimos os dados no console executando a função
 
 // HASH TABLE - Versão utilizando o metodo reduce() e tolocalelowercase() para ter normalização de dados e case-Insensitivity na hora da pesquisa
 function hashTable(listaDeNovels) {
@@ -240,6 +167,91 @@ function buscarNovel(buscaTitulo) {
 
 //Retorno de pesquisa para confirmar se funciona
 //console.log(buscarNovel("solo leveling"));
+
+//Função para criar um sistema de recomendação de novels por generos baseados da novel clicada
+function construcaoGrafoNovelsGenero() {
+  //Crio o grafo onde sairá o resultado final
+  const grafoNovelsGeneros = {};
+  //Crio uma variavel que tem um loop no meu "banco de dados", pego os elementos de generos e separo eles em um array de generos "limpos" usando o split("/")
+  const novelsLidas = bibliotecaNovels.forEach(novels => {
+    const generoNovel =
+      novels.genero?.split("/").map(genero => aux(genero)) || [];
+    //Aqui alimento o objeto inicial, completando a primeira parte do grafo Novel -> Genero
+    grafoNovelsGeneros[novels.titulo] = generoNovel;
+
+    //Na segunda parte criamos um "sub-loop" dentro do loop principal para pegar os genero e verificar se eles ja tem esse genero dentro de grafoNovelsGeneros
+    generoNovel.forEach(generosNovel => {
+      const generos = generosNovel;
+      if (!grafoNovelsGeneros[generos]) {
+        //Se não ter, ele inicializa os elementos de genero que estão dentro das gavetas de grafoNovelsGeneros e cria um array vazio para cada
+        grafoNovelsGeneros[generos] = [];
+      }
+      //Depois de criar esse array vazio, ja fora da condicional, ele pega para esses generos e coloca as suas repectivas novels titles de acordo com o genero de cada
+      grafoNovelsGeneros[generos].push(novels.titulo);
+    });
+  });
+
+  return grafoNovelsGeneros;
+}
+
+//BFS - pesquisa em largura utilizada dentro da novel clicada, para quando abrir as infos da novel clicada recomendar de acordo
+//com a novel clicada
+function recomendarNovels(novelClicada) {
+  //defino o parametro da novel clicada
+  const grafo = construcaoGrafoNovelsGenero();
+  //a constante grafo sera referenciada na função que foi criada a estrutura em grafo para fazer o BFS
+  const fila = [novelClicada];
+  //criamos uma constante fila que recebe o parametro da novel clicada
+  const visitados = new Set();
+  visitados.add(novelClicada);
+  //criamos uma constante visitados para que não recomende a novel que esta aberta e ja adicionamos ela para que não seja recomendada
+  const recomedacoes = [];
+  //temos uma const recomedações para que seja exibido as novels de acordo os generos forem mais "batendo"
+
+  //enquanto a fila for maior que 0 pega o primeiro da fila com shift() FIFO transforma na const atual
+  while (fila.length > 0) {
+    const atual = fila.shift();
+
+    //Os vizinho são os generos dessa novel atual
+    const vizinhos = grafo[atual] || [];
+
+    //o loop for vai passar por todas esses generos e adicionar todos em visitados e colocar no final da fila
+    for (let vizinho of vizinhos) {
+      if (!visitados.has(vizinho)) {
+        visitados.add(vizinho);
+        fila.push(vizinho);
+
+        //Novel esta recebendo os nomes na hashNovels em maisculo como eleas estão, colocando a função auxiliar as novels serão padronizadas
+        const novelTratada = aux(vizinho);
+
+        //No is é testado todos os generos dessa fila para serem buscados na hashNovels e como eles são elementos de generos e não os titulos da novel
+        //eles não são achados e o if não encontra e manda nada para o array de recomendações, agora ele passa a verificar os proximos da fila
+        //que seriam os vizinhos dos generos da novel clicada que seriam as novels que batem o mesmo genero que a novel clicada
+        //eles não foram visitados, eles entram no set visitados são adicionados a fila e como agora eles são buscados no if e são os titulos das novels,
+        //eles caem na condição e são colocados na recomendação
+        if (hashNovels[novelTratada]) {
+          recomedacoes.push(hashNovels[novelTratada]);
+        }
+      }
+    }
+  }
+  //retorna o resultado do processo da função sendo passado o metodo slice para pegar apenas 3 novels recomendadas e não todas infinitamente
+  return recomedacoes.slice(0, 3);
+}
+
+// Aprendendo e criando uma function que utiliza o metodo sort() e tambem o Spread Operator para imutabilidade
+function sortNovels() {
+  // Criamos a função
+  const nota = [...bibliotecaNovels].sort((a, b) => b.notas - a.notas);
+  //Criamos a variavel "nota" que vai ser o resultado do metodo sort() do array e vai fazer o calculo pegando "a/b" para ver em cada elemento dos objetos qual é maior e assim fazer a enumeração
+  // Usei o Spread Operator (...) que cria basicamente uma "copia" do meu array espalhando os elementos para usar o metodo sort(), mas quando eu chamo o array fora da função ele esta de volta a sua "forma original" e não por essa "copia ordenada",
+  // assim preservando a imutabilidade do array "original"
+  return nota;
+  // Aqui retornamos a variavel nota depois de fazermos o calculo
+}
+
+//console.log(sortNovels());
+// Exibimos os dados no console executando a função
 
 // Function utilizando o metodo filter() mas agora utilizando a pesquisa dinamica onde eu coloco o status que eu quero da novel e ela me retorna todos os resultados
 
@@ -332,146 +344,14 @@ console.log(
 //Exibo essa a bibliotecaNovels ja "atualizada" com o novo objeto
 //console.log(bibliotecaNovels);
 
-//Criar uma função que recebe um parametro padrão (permitindo a função exibir um array completo ou um array filtrado) para criar o hmtl e inserir ele, podendo tbm através da barra de pesquisa pegar uma novel pelo titulo
-function listaCards(biblioteca = bibliotecaNovels) {
-  // Antes eu pegava o parametro e += dentro do inneHTML, mas percebi ser um metodo falho e que trazia riscos
-  // coloquei então um map, para ele fazer o mapeamento do meu parametro e retornar todos em um unico array em forma de strings
-  // e utilizei do join para tirar a separação por "," dessas strings e assim os transformando em uma string gigante sem esta separada por ","
-  //basicamente falando para o join() junte tudo usando nada como separador
-  // o navegado agora so trabalha "uma vez" agora inves de antes onde ele sempre se reconstruia sempre que era chamado
-  const htmlCards = biblioteca
-    .map(
-      capa => `<div class="novel-title relative group inline-block break-words mx-auto my-5" data-title="${capa.titulo}">
-      <img class="overflow-hidden transition-all duration-300 transform group-hover:cursor-pointer object-cover object-center my-5 h-auto w-52 rounded-md group-hover:scale-125" src="${capa.capa}" alt="${capa.titulo}" id="imgModal"> 
-      <div class="overflow-hidden transition-all opacity-0 absolute top-35 rounded-md w-auto font-extraboldbold text-2xl bg-white/50 text-black  group-hover:opacity-100 group-hover:cursor-pointer">${capa.titulo}</div>
-    </div>
-    `,
-    )
-    .join("");
+const novelteste = bibliotecaNovels[0];
 
-  cardsNovels.innerHTML = htmlCards;
-}
-//Rodar a função junto ao localstorage para deixar o que foi pesquisado anteriormente la e sendo salvo tbm o resultado dessa pesquisa no html
-listaCards(topNovelsPorTitulo(tituloSalvo));
+console.log(`Esse é o comentario pai: ${novelteste.comentarios[0].texto}`);
 
-//Função para criar um sistema de recomendação de novels por generos baseados da novel clicada
-function construcaoGrafoNovelsGenero() {
-  //Crio o grafo onde sairá o resultado final
-  const grafoNovelsGeneros = {};
-  //Crio uma variavel que tem um loop no meu "banco de dados", pego os elementos de generos e separo eles em um array de generos "limpos" usando o split("/")
-  const novelsLidas = bibliotecaNovels.forEach(novels => {
-    const generoNovel =
-      novels.genero?.split("/").map(genero => aux(genero)) || [];
-    //Aqui alimento o objeto inicial, completando a primeira parte do grafo Novel -> Genero
-    grafoNovelsGeneros[novels.titulo] = generoNovel;
+console.log(
+  `Esse é o comentario pai: ${novelteste.comentarios[0].respostas[0].texto}`,
+);
 
-    //Na segunda parte criamos um "sub-loop" dentro do loop principal para pegar os genero e verificar se eles ja tem esse genero dentro de grafoNovelsGeneros
-    generoNovel.forEach(generosNovel => {
-      const generos = generosNovel;
-      if (!grafoNovelsGeneros[generos]) {
-        //Se não ter, ele inicializa os elementos de genero que estão dentro das gavetas de grafoNovelsGeneros e cria um array vazio para cada
-        grafoNovelsGeneros[generos] = [];
-      }
-      //Depois de criar esse array vazio, ja fora da condicional, ele pega para esses generos e coloca as suas repectivas novels titles de acordo com o genero de cada
-      grafoNovelsGeneros[generos].push(novels.titulo);
-    });
-  });
-
-  return grafoNovelsGeneros;
-}
-
-//BFS - pesquisa em largura utilizada dentro da novel clicada, para quando abrir as infos da novel clicada recomendar de acordo
-//com a novel clicada
-function recomendarNovels(novelClicada) {
-  //defino o parametro da novel clicada
-  const grafo = construcaoGrafoNovelsGenero();
-  //a constante grafo sera referenciada na função que foi criada a estrutura em grafo para fazer o BFS
-  const fila = [novelClicada];
-  //criamos uma constante fila que recebe o parametro da novel clicada
-  const visitados = new Set();
-  visitados.add(novelClicada);
-  //criamos uma constante visitados para que não recomende a novel que esta aberta e ja adicionamos ela para que não seja recomendada
-  const recomedacoes = [];
-  //temos uma const recomedações para que seja exibido as novels de acordo os generos forem mais "batendo"
-
-  //enquanto a fila for maior que 0 pega o primeiro da fila com shift() FIFO transforma na const atual
-  while (fila.length > 0) {
-    const atual = fila.shift();
-
-    //Os vizinho são os generos dessa novel atual
-    const vizinhos = grafo[atual] || [];
-
-    //o loop for vai passar por todas esses generos e adicionar todos em visitados e colocar no final da fila
-    for (let vizinho of vizinhos) {
-      if (!visitados.has(vizinho)) {
-        visitados.add(vizinho);
-        fila.push(vizinho);
-
-        //Novel esta recebendo os nomes na hashNovels em maisculo como eleas estão, colocando a função auxiliar as novels serão padronizadas
-        const novelTratada = aux(vizinho);
-
-        //No is é testado todos os generos dessa fila para serem buscados na hashNovels e como eles são elementos de generos e não os titulos da novel
-        //eles não são achados e o if não encontra e manda nada para o array de recomendações, agora ele passa a verificar os proximos da fila
-        //que seriam os vizinhos dos generos da novel clicada que seriam as novels que batem o mesmo genero que a novel clicada
-        //eles não foram visitados, eles entram no set visitados são adicionados a fila e como agora eles são buscados no if e são os titulos das novels,
-        //eles caem na condição e são colocados na recomendação
-        if (hashNovels[novelTratada]) {
-          recomedacoes.push(hashNovels[novelTratada]);
-        }
-      }
-    }
-  }
-  //retorna o resultado do processo da função sendo passado o metodo slice para pegar apenas 3 novels recomendadas e não todas infinitamente
-  return recomedacoes.slice(0, 3);
-}
-
-//DOM
-
-//Crio uma ação de evento de click para quando clicar no svg o tema do site mudar
-switchTheme.addEventListener("click", () => {
-  //esse comando faz acrescentar o "dark" direto no html
-  const isDark = document.documentElement.classList.toggle("dark");
-
-  //Verifica se o tema isDark esta no html, se sim, ele salva ele e deixa salvo se não, ele coloca o light no localStorage assim o deixando salvo
-  localStorage.setItem("tema", isDark ? "dark" : "light");
-});
-
-//Crio um evento de input, que basicamente vai registrar tudo o que o usuario fazer no campo de pesquisa
-resultado.addEventListener("input", e => {
-  //Coloco um console.log para confirmar se esta pegando o valor
-  //console.log(e.target.value);
-
-  //criar a constante campoDigitado que vai receber o valor do que sera digitado na barra de pesquisa
-  const campoDigitado = e.currentTarget.value;
-
-  //O que esta sendo digitado vai entrar dentro da função topNovelsPorTitulo para ser exibido no html atraves da função listaCards
-  listaCards(topNovelsPorTitulo(campoDigitado));
-
-  //salvar o valor dando uma chave e a variavel campoDigitado pois ela recebe a string(valor) da barra de pesquisa
-  localStorage.setItem("campo", campoDigitado);
-});
-
-//cria um evento para pegar a div clicada e puxar até o elemento pai que tem a class(novel-title)
-cardsNovels.addEventListener("click", e => {
-  //cria uma variavel para esse (novel-title)
-  const divNovel = e.target.closest(".novel-title");
-  //cria uma condicional onde se for divNovel, cria-se a constante que pega o dataset de divNovel e abre o modal
-  if (divNovel) {
-    const tituloNovel = buscarNovel(divNovel.dataset.title);
-    //console.log(tituloNovel);
-    toggleModal(tituloNovel);
-  }
-});
-
-//EVENTO DE FECHAMENTO: Faz com que o botão do modal funcione corretamente
-closeModal.addEventListener("click", () => {
-  toggleModal();
-});
-
-//EVENTO DE FECHAMENTO: Faz com que o usario feche o modal não só clicando no botão, mas tbm na parte escura
-//e criando uma condicional para impedir que o modal feche clicando dentro dele
-fade.addEventListener("click", e => {
-  if (e.target === fade) {
-    toggleModal();
-  }
-});
+console.log(
+  `Esse é o comentario pai: ${novelteste.comentarios[0].respostas[0].respostas[0].texto}`,
+);

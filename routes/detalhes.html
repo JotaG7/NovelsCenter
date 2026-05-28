@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Versão 4 do tailwind esta meio instavel ainda, foi preciso mudar a classe .dark manualmente -->
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style type="text/css">
+      :root {
+        --background: #ffffff;
+        --foreground: #000000;
+      }
+      .dark {
+        --background: #353434;
+        --foreground: #ffffff;
+      }
+
+      body {
+        background-color: var(--background);
+        color: var(--foreground);
+      }
+    </style>
+    <title>Novel Infos</title>
+  </head>
+  <body>
+    <div class="py-5 border-b-2 border-gray-500" id="detalhes-header">
+      <h1 id="detalhes-title"></h1>
+      <div class="mr-15 cursor-pointer p-1" id="theme">
+        <svg
+          class="w-8 -m-1 fill-black dark:fill-white"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"
+          />
+        </svg>
+      </div>
+    </div>
+
+    <div id="detalhes-body">
+      <!--Infos gerais da novel clicada-->
+      <div
+        id="detalhes-infoNovel"
+        class="flex flex-col md:flex-row gap-10 my-5"
+      >
+        <img
+          id="detalhesImg"
+          class="w-auto h-64 object-cover object-center rounded-md"
+          src=""
+          alt=""
+        />
+        <div id="infoNovel" class="flex flex-col mx-auto"></div>
+      </div>
+
+      <!--BFS o sistema de recomendação de novels baseadas pelo genero da novel clicada-->
+      <div id="detalhes-recNovels" class="mt-5">
+        <h3 class="text-center border-gray-500 py-4 border-t-2">
+          Novels relacionadas
+        </h3>
+        <div
+          id="bfsCards"
+          class="grid grid-cols-2 items-center gap-2 rounded-md border-b-2 border-gray-500 md:grid md:grid-cols-3"
+        ></div>
+      </div>
+
+      <!--Mini seção de comentarios para resenha dos usuarios sobre a novel clicada-->
+      <div id="detalhes-comments" class="my-5 mx-auto max-w-2xl px-4">
+        <h3 class="text-center font-bold mb-6">Comentarios</h3>
+        <form action="" id="form-comments" class="flex flex-col gap-3 mb-8">
+          <textarea
+            class="border border-gray-900 dark:border-gray-300 p-2 rounded-md bg-transparent text-current focus:outline-none focus:ring-2 focus:ring-gray-500"
+            name="comentario"
+            id="text-comentario"
+            rows="5"
+            cols="40"
+            placeholder="Escreva seu comentario sobre a novel aqui!"
+          ></textarea>
+
+          <button
+            class="cursor-pointer p-2 hover:text-gray-900 text-white dark:bg-gray-300 dark:text-black rounded-md font-bold hover:opacity-80 transition-all self-end"
+            type="submit"
+          >
+            Enviar
+          </button>
+        </form>
+        <!--Onde ira aparecer a arvore de comentarios-->
+        <div id="container-comentarios" class="flex flex-col gap-4 mt-6"></div>
+      </div>
+    </div>
+
+    <script src="../assets/js/database.js" defer></script>
+    <script src="../assets/js/detalhes.js" defer></script>
+  </body>
+</html>

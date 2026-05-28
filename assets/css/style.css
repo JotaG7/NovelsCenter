@@ -1,0 +1,44 @@
+/*Para o conteudo não vazar para fora de suas "caixas"*/
+* {
+  box-sizing: border-box;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+#detalhes-title,
+#detalhes-body {
+  font-size: 23px;
+  font-weight: bold;
+  color: black;
+}
+
+#theme {
+  margin-left: 100px;
+}
+
+/*No header vai ter o titulo da novel + o botão de fechar o modal*/
+#detalhes-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+/*No body vai ter tres conteudos que vão ser as informações gerais da novel clicada, o sistema de recomendação em grafos BFS
+e uma mini seção de comentarios*/
+#detalhes-body {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+}
+
+#infoNovel div {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+#form-comments {
+  font-size: 17px;
+}
