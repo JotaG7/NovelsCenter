@@ -80,3 +80,33 @@ switchTheme.addEventListener("click", () => {
   //Verifica se o tema isDark esta no html, se sim, ele salva ele e deixa salvo se não, ele coloca o light no localStorage assim o deixando salvo
   localStorage.setItem("tema", isDark ? "dark" : "light");
 });
+
+function renderizarComentarios(listaDeComentarios) {
+  if (!listaDeComentarios) return "";
+
+  const listaComentarios = listaDeComentarios
+    .map(
+      comentario =>
+        `<div class="mb-10">
+          <div class="text-lg p-5 border border-gray-300 dark:border-gray-700 hover:border-l-2 hover:border-gray-950 dark:hover:border-white hover:cursor-pointer rounded-md"> 
+            <strong>Usuario:</strong> ${comentario.usuario} <br/> 
+             <strong>Comentario:</strong> ${comentario.texto}
+          </div>  
+           ${
+             comentario.respostas && comentario.respostas.length > 0
+               ? `<div class="text-lg ml-8 pl-4 border-b border-l border-gray-300 dark:border-gray-700 mt-4 hover:border-l-2 hover:border-gray-950 dark:hover:border-white hover:cursor-pointer">
+                 ${renderizarComentarios(comentario.respostas)}
+               </div>`
+               : ""
+           }
+
+        </div>`,
+    )
+    .join("");
+
+  return listaComentarios;
+}
+
+containerComentarios.innerHTML = renderizarComentarios(
+  novelEncontrada.comentarios,
+);

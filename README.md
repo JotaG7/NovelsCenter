@@ -82,7 +82,7 @@ Atualmente as funcionalidades são:
 
 3. **Otimização da performance DOM**: Substituí o uso da concatenação direta "+=" no `innerHTML` dentro do laço pelo uso combinado de `.map()` e `.join("")`, onde serão evitadas renderizações repetidas desnecessárias (_reflow_), fazendo com que o navegador processe a string gerada e atualize a interface visual em uma única operação.
 
-4. **Construção de grafo bidirecional**: Para utilizar da `Pesquisa em Largura (BFS)`, criei um grafo bidirecional, com `.forEach()` fiz um loop no meu "banco de dados" e utilizando dos metodos `.split()` e `.map()`, transformo e normalizei a string de generos. O algoritmo pega o vertice inicial(a novel clicacada) e aponta para todos os seus generos, estes, por sua vez, apontam para as respectivas novels que os possuem. Dessa forma, as novels que compartilharem mais generos gêneros com a novel clicada serão priorizadas nas recomendações.
+4. **Construção de grafo bidirecional**: Para utilizar da `Pesquisa em Largura (BFS)`, criei um grafo bidirecional, com `.forEach()` fiz um loop no meu "banco de dados" e utilizando dos metodos `.split()` e `.map()`, transformo e normalizei a string de generos. O algoritmo pega o vertice inicial(a novel clicacada) e aponta para todos os seus generos, estes, por sua vez, apontam para as respectivas novels que os possuem. Dessa forma, as novels que compartilharem mais gêneros com a novel clicada serão priorizadas nas recomendações.
 
 ## Futuras Melhorias/Roadmap
 
