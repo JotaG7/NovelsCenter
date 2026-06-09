@@ -1,3 +1,6 @@
+//Selecionando o formulario
+const formComments = document.querySelector("form");
+
 //Selecionando o id container-comentarios
 const containerComentarios = document.getElementById("container-comentarios");
 
@@ -110,3 +113,31 @@ function renderizarComentarios(listaDeComentarios) {
 containerComentarios.innerHTML = renderizarComentarios(
   novelEncontrada.comentarios,
 );
+
+formComments.addEventListener("submit", e => {
+  e.preventDefault();
+
+  if (!novelEncontrada.comentarios) {
+    novelEncontrada.comentarios = [];
+  }
+
+  const textComments = aux(formComments.textComentario.value);
+
+  if (!textComments) {
+    return alert("Digite algo...");
+  }
+
+  const newComments = {
+    id: novelEncontrada.comentarios.length + 1,
+    usuario: "Teste",
+    texto: textComments,
+    respostas: [],
+  };
+
+  novelEncontrada.comentarios.push(newComments);
+
+  containerComentarios.innerHTML = renderizarComentarios(
+    novelEncontrada.comentarios,
+  );
+  formComments.textComentario.value = "";
+});

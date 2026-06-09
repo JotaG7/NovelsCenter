@@ -343,15 +343,3 @@ console.log(
 
 //Exibo essa a bibliotecaNovels ja "atualizada" com o novo objeto
 //console.log(bibliotecaNovels);
-
-const novelteste = bibliotecaNovels[0];
-
-console.log(`Esse é o comentario pai: ${novelteste.comentarios[0].texto}`);
-
-console.log(
-  `Esse é o comentario pai: ${novelteste.comentarios[0].respostas[0].texto}`,
-);
-
-console.log(
-  `Esse é o comentario pai: ${novelteste.comentarios[0].respostas[0].respostas[0].texto}`,
-);
