@@ -4,8 +4,8 @@ A novel review system built to practice array manipulation, objects, and search 
 
 ## How to Run
 
-1. Clone this repository: `git clone <https://github.com/JotaG7/NovelsCenter.git>`
-2. Open the `index.html` file directly in your browser or use the **Live Server** extension in VS code
+1. Clone this repository: `git clone https://github.com/JotaG7/NovelsCenter.git`
+2. Open the `index.html` file directly in your browser or use the **Live Server** extension in VS Code
 
 ## Features
 
@@ -21,11 +21,17 @@ Currently, the system includes:
 
 5. **Breadth-First Search (BFS) Recommendation**: Implemented a BFS algorithm over a bidirectional graph to suggest relevant novels dynamically based on the user's current selection.
 
+6. **Details Page & Recursive Comments**: A dynamic details page that loads specific novel data via URL parameters, featuring a comment system complete data persistence.
+
+7. **Interface Themes**: LocalStorage-driven light/dark mode persistence that respects user preferences across reloads.
+
 ## Technologies
 
 - **JavaScript (ES6+)**
+- **Tailwind CSS**
 - **Git/GitHub**
 - **HTML5**
+- **CSS3**
 
 ## Lessons Learned
 
@@ -37,9 +43,12 @@ Currently, the system includes:
 
 4. **Bidirectional Graph Construction**: To implement the `Breadth-First Search (BFS)`, I created a bidirectional graph. By using the `.forEach()` method to iterate through the "database" combined with `.split()` and `.map()`, I transformed and normalized the genre strings. The algorithm takes the initial vertex (the clicked novel) and points to all its genres; these, in turn, point back to the respective novels that share them. Consequently, novels that share more genres with the clicked novel will be prioritized in the recommendations.
 
+5. **Data Persistence & Execution Order**: I learned how to manage data synchronization using **LocalStorage**, resolving edge cases related to asynchronous initialization and object references in JavaScript.
+
 ## Future improvements/Roadmap
 
-1. Create a detailed page to include the information about the clicked novel and all its features.
+1. Migrate the local mock data to a real REST API or backend service.
+2. Implement user authentication for individualized comment profiles.
 
 **Created by João Paulo Almeida Aureliano**
 
@@ -51,8 +60,10 @@ Currently, the system includes:
 
 Um sistema de resenhas sobre novels para praticar manipulação de arrays, objetos e algoritmos de busca.
 
-1. Clone este repositório: `git clone <https://github.com/JotaG7/NovelsCenter.git>`
-2. Abra o arquivo `index.html` diretamente em seu navegador ou use a extensão **Live Server** no código VS
+## Como Executar
+
+1. Clone este repositório: `git clone https://github.com/JotaG7/NovelsCenter.git`
+2. Abra o arquivo `index.html` diretamente em seu navegador ou use a extensão **Live Server** no VS Code
 
 ## O que o sistema faz?
 
@@ -64,15 +75,21 @@ Atualmente as funcionalidades são:
 
 3. **Normalização de Dados**: Com o `.toLocaleLowerCase()`, `.trim()` e com a combinação de `.normalize("NFD").replace(/[\u0300-\u036f]/g, "")`, o sistema unifica as strings fazendo com que o modo como o usuário digita seja convertido em strings "padrões". Se for com espaçamentos extras, letras maiúsculas/minúsculas e com acentos, o sistema garante precisão nas buscas mesmo com as variações na digitação.
 
-4. **Filtro Dinâmico**: Utilizando o método `filter()`, é possível realizar uma filtragem dinâmica das novels por status de leitura.
+4. **Filtro Dinâmico**: Utilizando os método `filter()`, é possível realizar uma filtragem dinâmica das novels por status de leitura.
 
-5. **Implementação do Algoritmo em Largura - BFS**: após a construção do grafo bidirecional implementei ele para recomendar novels de acordo com a novel clicada do usuario.
+5. **Implementação do Algoritmo em Largura - BFS**: Após a construção do grafo bidirecional, implementei o BFS para recomendar novels correlacionadas de acordo com a novel selecionada pelo usuário.
+
+6. **Página de Detalhes e Comentários Recursivos**: Criação de uma página interna dinâmica mapeada via parâmetros de URL (`URLSearchParams`), com sistema de injeção de novos comentários.
+
+7. **Persistência de Preferências**: Armazenamento do estado do tema (Claro/Escuro) e cache de dados de comentários diretamente no navegador via **LocalStorage**.
 
 ## Tecnologias Utilizadas
 
 - **JavaScript (ES6+)**
+- **Tailwind CSS**
 - **Git/GitHub**
 - **HTML5**
+- **CSS3**
 
 ## Lições Aprendidas
 
@@ -82,10 +99,13 @@ Atualmente as funcionalidades são:
 
 3. **Otimização da performance DOM**: Substituí o uso da concatenação direta "+=" no `innerHTML` dentro do laço pelo uso combinado de `.map()` e `.join("")`, onde serão evitadas renderizações repetidas desnecessárias (_reflow_), fazendo com que o navegador processe a string gerada e atualize a interface visual em uma única operação.
 
-4. **Construção de grafo bidirecional**: Para utilizar da `Pesquisa em Largura (BFS)`, criei um grafo bidirecional, com `.forEach()` fiz um loop no meu "banco de dados" e utilizando dos metodos `.split()` e `.map()`, transformo e normalizei a string de generos. O algoritmo pega o vertice inicial(a novel clicacada) e aponta para todos os seus generos, estes, por sua vez, apontam para as respectivas novels que os possuem. Dessa forma, as novels que compartilharem mais gêneros com a novel clicada serão priorizadas nas recomendações.
+4. **Construção de grafo bidirecional**: Para utilizar da `Pesquisa em Largura (BFS)`, criei um grafo bidirecional. Com `.forEach()` fiz um loop no meu "banco de dados" e utilizando dos métodos `.split()` e `.map()`, transformei e normalizei a string de gêneros. O algoritmo pega o vértice inicial (a novel clicada) e aponta para todos os seus gêneros; estes, por sua vez, apontam para as respectivas novels que os possuem. Dessa forma, as novels que compartilharem mais gêneros com a novel clicada serão priorizadas nas recomendações.
+
+5. **Gerenciamento de Estado e Sincronização**: Aprendi a lidar com referências de memória no JavaScript e a importância da ordem de execução de scripts ao carregar e atualizar o estado global da aplicação a partir do cache local.
 
 ## Futuras Melhorias/Roadmap
 
-1. Criar uma pagina detalhada para colocar as infos da novel clicada e todas as suas funcionalidades.
+1. Migrar a base de dados local para consumo de uma API REST real.
+2. Adicionar autenticação de usuários para controle individualizado de perfis nos comentários.
 
 **Criado por João Paulo Almeida Aureliano**

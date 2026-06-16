@@ -1,6 +1,6 @@
 //Banco de dados feito de forma manual, ainda não aprendi sobre banco de dados de maneira "formal"
 
-let bibliotecaNovels = [
+let bibliotecaNovels = JSON.parse(localStorage.getItem("novels")) || [
   {
     titulo: "Lord of the Mysteries",
     genero: "Fantasia/Misterios/Steampunk/Sobrenatural",

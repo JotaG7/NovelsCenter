@@ -20,6 +20,8 @@ const tituloSalvo = localStorage.getItem("campo");
 //Colocando uma string vazia para não retornar nulo e o includes() retornar todas as novels
 if (tituloSalvo || "") {
   resultado.value = tituloSalvo;
+} else {
+  resultado.value = "";
 }
 
 //Criar uma função que recebe um parametro padrão (permitindo a função exibir um array completo ou um array filtrado) para criar o hmtl e inserir ele, podendo tbm através da barra de pesquisa pegar uma novel pelo titulo

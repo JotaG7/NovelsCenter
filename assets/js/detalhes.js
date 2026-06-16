@@ -140,4 +140,9 @@ formComments.addEventListener("submit", e => {
     novelEncontrada.comentarios,
   );
   formComments.textComentario.value = "";
+
+  //Salva a lista de novos comentarios no localStorage
+  localStorage.setItem("novels", JSON.stringify(bibliotecaNovels));
+
+  hashNovels = hashTable(bibliotecaNovels);
 });
